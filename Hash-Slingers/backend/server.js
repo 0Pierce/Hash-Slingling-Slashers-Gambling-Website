@@ -12,7 +12,7 @@ const userController = require('./controllers/userController');
 
 
 
-mongoose.connect('mongodb-connection-Replace', {
+mongoose.connect('mongodb+srv://hashslingers:<password>@hash-slinging.qyqsxr4.mongodb.net/?retryWrites=true&w=majority', {
     userNewUrlParser: true,
     useUnifiedTopology: true,
 })
