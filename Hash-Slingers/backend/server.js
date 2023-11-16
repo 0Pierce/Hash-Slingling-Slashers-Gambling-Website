@@ -1,5 +1,8 @@
 
 const express = require('express')
+const errorController = require('./controllers/error.controller');
+const authController = require('./controllers/auth.controller');
+
 <<<<<<< HEAD
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
@@ -34,3 +37,9 @@ app.get("/api", (req,res)=>{
 
 app.listen(5000, ()=>{console.log("Live on port 5000")} );
 >>>>>>> origin/main
+
+app.post('/auth/signin', authController.signIn);
+app.post('/auth/signout', authController.signOut);
+
+app.use(errorController.notFound);
+app.use(errorController.handleError);
