@@ -2,15 +2,15 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 
-router.post('/api/user', userController.createUser);
+router.post('/user', userController.createUser);
 
-router.get('/api/users', userController.listUsers);
+router.get('/users', userController.listUsers);
 
-router.get('/api/users/:id', userController.getUser)
+router.get('/users/:id', userController.getUser)
 
-router.put('/api/user/:id', userController.updateUser);
+router.put('/user/:id', userController.updateUser);
 
-router.delete('/api/users/:id', userController.deleteUser);
+router.delete('/users/:id', userController.deleteUser);
 
 router.post('/auth/signin', userController.signIn);
 
