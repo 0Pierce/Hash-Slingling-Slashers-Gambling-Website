@@ -15,7 +15,7 @@ exports.signIn = async (req, res) => {
     try {
         const user = await User.findOne({ email: req.body.email });
         if (!user || req.body.password !== user.password) {
-            return res.status(404).send({ error: 'Login failed!' });
+            return res.status(401).send({ error: 'Login failed!' });
         }
 
         res.status(200).send({ message: 'Login successful!' });
@@ -36,10 +36,10 @@ exports.signOut = (req, res) => {
     });
 };
 
-exports.listUsers = async (req, res) => {
+exports.listUser = async (req, res) => {
     try {
-        const users = await User.find({});
-        res.status(200).send(users);
+        const user = await User.find({});
+        res.status(200).send(user);
     } catch (error) {
         console.error(error);
         res.status(500).send(error);
