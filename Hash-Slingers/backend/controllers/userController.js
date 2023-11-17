@@ -2,7 +2,7 @@ const User = require('../models/user');
 
 exports.createUser = async (req, res) => {
     try {
-        const user = new user(req.body);
+        const user = new User(req.body);
         await user.save();
         res.status(201).send(user);
     } catch (error) {
@@ -38,7 +38,7 @@ exports.signOut = (req, res) => {
 
 exports.listUsers = async (req, res) => {
     try {
-        const users = await User.find({})
+        const users = await User.find({});
         res.status(200).send(users);
     } catch (error) {
         console.error(error);
@@ -78,7 +78,7 @@ exports.deleteUser = async (req, res) => {
         if (!user) {
             return res.status(404).send({ error: 'User not found' });
         }
-        res.status(200).send({message: 'User deleted successfully' });
+        res.status(200).send({ message: 'User deleted successfully' });
     } catch (error) {
         console.error(error);
         res.status(500).send(error);
