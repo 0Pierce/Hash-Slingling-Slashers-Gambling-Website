@@ -4,13 +4,13 @@ const userController = require('../controllers/userController');
 
 router.post('/user', userController.createUser);
 
-router.get('/users', userController.listUsers);
+router.get('/user', userController.listUser);
 
-router.get('/users/:id', userController.getUser)
+router.get('/user/:id', userController.getUser)
 
 router.put('/user/:id', userController.updateUser);
 
-router.delete('/users/:id', userController.deleteUser);
+router.delete('/user/:id', userController.deleteUser);
 
 router.post('/auth/signin', userController.signIn);
 
