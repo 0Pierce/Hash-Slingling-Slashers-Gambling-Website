@@ -1,9 +1,9 @@
 const express = require('express');
-const errorController = require('./controllers/error.controller');
-const authController = require('./controllers/auth.controller');
-
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
+const authController = require('./controllers/auth.controller');
+const errorController = require('./controllers/error.controller');
+
 const app = express();
 
 const userController = require('./controllers/userController');
@@ -19,10 +19,16 @@ app.use(express.json());
 
 app.use("/api", userRoutes);
 
-app.listen(5000, () => { console.log("Live on port 5000") });
-
 app.post('/auth/signin', authController.signIn);
 app.post('/auth/signout', authController.signOut);
 
 app.use(errorController.notFound);
 app.use(errorController.handleError);
+
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+}).on('error', (err) => {
+    console.error('Error occurred starting the server:', err);
+});
