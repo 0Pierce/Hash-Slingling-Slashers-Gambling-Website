@@ -1,8 +1,13 @@
 import React from 'react'
+import Header from '../components/Header.jsx'
 
 function About() {
   return (
-    <div>About</div>
+    <>
+    <Header></Header>
+
+
+    </>
   )
 }
 

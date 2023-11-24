@@ -1,10 +1,42 @@
-import React,{useEffect,useState} from 'react'
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import {React, useState, useEffect} from 'react'
+import ReactDOM from 'react-dom/client'
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
 import Home from './pages/Homepage';
+import Homepage from "./pages/Homepage";
 import Contact from './pages/Contact';
 import About from './pages/About';
+import "./styles/App.css"
+
+
+
 
 function App() {
+  const mainRouter = createBrowserRouter([
+
+    //Create routes
+    {
+      path: "/",
+      element: <Homepage/>
+    },
+    //Route num2
+    {
+      path: "Contact",
+      element: <Contact/>
+    },
+    {
+      path: "About",
+      element: <About/>
+    },
+  
+  
+  
+  
+  ])
 
   const[backendData, setBackendData] = useState([{}])
 
@@ -16,6 +48,8 @@ function App() {
 
   return (
     <>
+      <RouterProvider router={mainRouter}/>
+
 
       <h4>Data example</h4>
       {(typeof backendData.users === 'undefined') ?(
@@ -26,29 +60,7 @@ function App() {
         ))
       ) }
 
-<Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-          </ul>
-        </nav>
-
-        <Routes>
-          <Route path="/" element={<Home backendData={backendData} />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </div>
-    </Router>
+    
 
     </>
   )

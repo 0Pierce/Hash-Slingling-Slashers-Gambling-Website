@@ -1,9 +1,18 @@
 import React from 'react'
-
-function home() {
+import Header from '../components/Header.jsx'
+import LandScreen from '../components/HomePageWelcome.jsx'
+import '../styles/HomePage.css'
+function Homepage() {
   return (
-    <div>home</div>
+    <>
+    <LandScreen></LandScreen>
+    <Header></Header>
+    <div className="HomepageBody">
+
+
+    </div>
+    </>
   )
 }
 
-export default home
+export default Homepage

@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from '../components/Header.jsx'
 
 function Contact() {
   return (
-    <div>Contact</div>
+    
+    <>
+    <Header></Header>
+    </>
   )
 }
 
