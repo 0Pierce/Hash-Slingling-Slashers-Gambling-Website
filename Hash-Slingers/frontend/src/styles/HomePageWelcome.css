@@ -23,6 +23,18 @@
   animation: dotZoomOut 120s linear infinite;
 }
 
+.landPyramid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+}
+
+.landPyramid img {
+  position: absolute;
+  width: 100%;
+}
+
 .HPWelcomeBodyBackground {
   width: 100%;
   height: 100%;
