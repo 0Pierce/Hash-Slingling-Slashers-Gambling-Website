@@ -1,3 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
+.hidden {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateX(-100%);
+  transition: 5s;
+}
+.show {
+  transition: 3s;
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
+
 .HPWelcomeBody {
   width: 100%;
   height: 100vh;
@@ -5,6 +19,17 @@
   background: linear-gradient(45deg, #070070, #300045);
   overflow: hidden;
 }
+
+.HPWelcomeBody h1 {
+  margin-top: 40px;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  font-size: 120px;
+  width: 100%;
+  color: #ffffff;
+  text-shadow: rgb(0, 47, 255) 100px 0 50px;
+}
+
 .HPWelcomeBody::before {
   overflow-x: hidden;
   content: "";
@@ -26,13 +51,19 @@
 .landPyramid {
   position: absolute;
   width: 100%;
-  height: 100%;
-  top: -120px;
-  z-index: 1;
+  height: auto;
+  bottom: -120px;
+  z-index: 0;
 }
 
 .landPyramid img {
   overflow: hidden;
+  height: auto;
+}
+
+.landPyramid h1 {
+  position: absolute;
+  z-index: 2;
 }
 
 .HPWelcomeBodyBackground {
@@ -41,7 +72,7 @@
   background-image: url("../assets/svgs/circles.svg");
   filter: blur(50px) drop-shadow(16px 16px 20px red) invert(75%);
 
-  overflow-x: hidden;
+  overflow: hidden;
   animation: cloudMove 20s linear infinite;
 }
 

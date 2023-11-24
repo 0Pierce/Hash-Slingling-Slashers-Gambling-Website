@@ -6,6 +6,7 @@ function Contact() {
     
     <>
     <Header></Header>
+    <h1>CONTACT</h1>
     </>
   )
 }

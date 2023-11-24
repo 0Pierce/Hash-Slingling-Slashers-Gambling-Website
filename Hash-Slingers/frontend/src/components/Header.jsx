@@ -7,15 +7,17 @@ function Header() {
     
     
     <div className="HeaderBody">
-       
-        <h2>HEADER</h2>
-        
-        <ul>
+               <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/Contact">Contact</Link></li>
-           
             <li><Link to="/About">About</Link></li>
         </ul>
+       <div className="headerBackground">
+
+       </div>
+        
+        
+      
     
     </div>
     

@@ -1,11 +1,27 @@
 .HeaderBody {
   width: 100%;
   margin: 0px;
-  background-color: aqua;
+  background-color: #000000;
   position: sticky;
   top: 0px;
-  height: 150px;
+  height: 100px;
   z-index: 100;
+  color: rgb(255, 255, 255);
+
+  overflow: hidden;
+}
+
+.headerBackground {
+  width: 100%;
+  height: 2000px;
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgb(255, 255, 255) 1px,
+    transparent 0
+  );
+  background-size: 30px 30px;
+  margin-top: 5px;
+  animation: dotAnim 20s linear infinite;
 }
 
 .HeaderBody h2 {
@@ -13,9 +29,32 @@
 }
 
 .HeaderBody ul {
+  position: absolute;
+  margin: 0px;
   display: flex;
+  right: 100px;
+  top: 30%;
+  text-decoration: none;
 }
 
 .HeaderBody li {
   margin-left: 50px;
+  text-decoration: none;
+  list-style: none;
+}
+
+.HeaderBody a {
+  color: aliceblue;
+  text-decoration: none;
+  font-size: 30px;
+}
+
+@keyframes dotAnim {
+  0% {
+    transform: rotateZ(0);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
 }

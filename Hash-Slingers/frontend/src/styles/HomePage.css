@@ -1,3 +1,58 @@
 .HomepageBody {
   height: 1500px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    215deg,
+    rgba(0, 21, 98, 1) 0%,
+    rgba(107, 0, 110, 1) 100%
+  );
+}
+
+.blob1 {
+  position: absolute;
+  filter: blur(150px);
+  left: 50px;
+  top: 50px;
+  animation: blobAnim 20s linear infinite;
+}
+
+.blob2 {
+  position: absolute;
+  filter: blur(150px);
+  right: 20px;
+  top: 600px;
+  animation: blobAnim 60s linear infinite;
+}
+
+.homepageBack {
+  position: relative;
+}
+
+@keyframes blobAnim {
+  0% {
+    scale: 1;
+    transform: rotateZ(0);
+  }
+  20% {
+    scale: 1.5;
+  }
+
+  40% {
+    transition: 10s;
+    scale: 0.5;
+  }
+
+  60% {
+    scale: 1;
+  }
+
+  80% {
+    transition: 10s;
+    scale: 0.5;
+  }
+  100% {
+    scale: 1;
+    transform: rotateZ(360deg);
+  }
 }
