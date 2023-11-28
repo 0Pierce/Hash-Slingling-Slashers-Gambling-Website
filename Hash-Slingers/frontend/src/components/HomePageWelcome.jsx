@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/HomePageWelcome.css'
 import Pyramid from "../assets/svgs/pyramid.svg"
+
 function HomePageWelcome() {
 
   function show(e){

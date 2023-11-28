@@ -10,6 +10,8 @@ import Home from './pages/Homepage';
 import Homepage from "./pages/Homepage";
 import Contact from './pages/Contact';
 import About from './pages/About';
+import Login from './pages/Login'
+import Register from './pages/Register'
 import "./styles/App.css"
 
 
@@ -32,6 +34,14 @@ function App() {
       path: "About",
       element: <About/>
     },
+    {
+      path: "Login",
+      element: <Login/>
+    },
+    {
+      path: "Register",
+      element: <Register/>
+    }
   
   
   
@@ -51,14 +61,7 @@ function App() {
       <RouterProvider router={mainRouter}/>
 
 
-      <h4>Data example</h4>
-      {(typeof backendData.users === 'undefined') ?(
-        <p>Loading...</p>
-      ):(
-        backendData.users.map((user,i)=>(
-          <p key={i}>{user}</p>
-        ))
-      ) }
+
 
     
 

@@ -29,6 +29,9 @@
   position: relative;
 }
 
+.homepageContent h1 {
+}
+
 @keyframes blobAnim {
   0% {
     scale: 1;

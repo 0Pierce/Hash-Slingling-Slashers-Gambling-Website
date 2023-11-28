@@ -12,6 +12,8 @@
 }
 
 .headerBackground {
+  z-index: 1;
+  position: relative;
   width: 100%;
   height: 2000px;
   background-image: radial-gradient(
@@ -35,6 +37,7 @@
   right: 100px;
   top: 30%;
   text-decoration: none;
+  z-index: 5;
 }
 
 .HeaderBody li {
