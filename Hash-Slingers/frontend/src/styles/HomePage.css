@@ -87,6 +87,7 @@
   transition: 0.5s;
   width: 100%;
   z-index: 3;
+  height: auto;
 }
 
 .game img {
@@ -109,7 +110,8 @@
 .game:hover p {
   font-size: 25px;
   transition: 1s;
-  top: 50%;
+  top: 120px;
+  height: auto;
   opacity: 1;
 }
 
