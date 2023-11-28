@@ -1,14 +1,15 @@
 import React from 'react'
 import Header from '../components/Header.jsx'
 
-function About() {
+function Games() {
   return (
     <>
-    <Header></Header>
-    <h1>ABOUT</h1>
-
+    
+    <Header/>
+    
+    
     </>
   )
 }
 
-export default About
+export default Games

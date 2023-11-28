@@ -9,7 +9,7 @@ import {
 import Home from './pages/Homepage';
 import Homepage from "./pages/Homepage";
 import Contact from './pages/Contact';
-import About from './pages/About';
+import Games from './pages/Games';
 import Login from './pages/Login'
 import Register from './pages/Register'
 import "./styles/App.css"
@@ -27,19 +27,19 @@ function App() {
     },
     //Route num2
     {
-      path: "Contact",
+      path: "/Contact",
       element: <Contact/>
     },
     {
-      path: "About",
-      element: <About/>
+      path: "/Games",
+      element: <Games/>
     },
     {
-      path: "Login",
+      path: "/Login",
       element: <Login/>
     },
     {
-      path: "Register",
+      path: "/Register",
       element: <Register/>
     }
   
@@ -55,10 +55,12 @@ function App() {
       data=>{setBackendData(data)}
     )
   },[])
-
+ 
   return (
     <>
-      <RouterProvider router={mainRouter}/>
+      
+        <RouterProvider router={mainRouter}/>
+      
 
 
 
