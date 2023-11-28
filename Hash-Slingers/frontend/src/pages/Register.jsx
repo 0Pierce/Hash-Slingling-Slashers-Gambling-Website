@@ -13,6 +13,17 @@ function Register() {
     const[email,setEmail]=useState('');
   
 
+    const createAccount = () =>{
+        if(fName.length != 0 && lName.length != 0 && username.length != 0 && password.length != 0 && email.length != 0){
+            console.log('Account created')
+            //Save into DB here
+        }
+        else{
+            console.log('Account creation failed')
+            alert('Missing input')
+            
+        }
+    }
 
   return (
     <>
@@ -35,7 +46,7 @@ function Register() {
                 <input type="text" placeholder='Password' id='pass' onChange={e=>setPassword(e.target.value)}/>
             </div>
            
-            <div className="regBtn"><input className='btnSend' type="submit" value="Submit" /></div>
+            <div className="regBtn"><button type="button" value="Submit" onClick={createAccount}>Submit</button></div>
             <div className="regLogin"><Link to="/Login">Login</Link></div>
 
         </form>

@@ -21,6 +21,7 @@ const verifyLogin = () => {
         localStorage.setItem('isLogged', true);
         window.location.reload();
     }else{
+        alert('Invalid credentials')
         console.log("Login Failed")
     }
 
