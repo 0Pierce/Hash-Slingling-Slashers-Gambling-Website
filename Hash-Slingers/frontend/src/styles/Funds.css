@@ -1,0 +1,80 @@
+.fundsBody {
+  height: 1000px;
+  width: 100%;
+  background-color: black;
+  background: linear-gradient(45deg, #070070, #300045);
+  position: relative;
+  overflow: hidden;
+}
+
+.fundsBody img {
+  margin: 0px;
+  position: absolute;
+  top: 0%;
+  width: 50%;
+  left: 30%;
+  transform: translate(-50%, 0%);
+  height: auto;
+  min-width: 400px;
+}
+
+.addFundsPanel {
+  min-width: 400px;
+  width: 40%;
+  height: 600px;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(50px);
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -40%);
+  text-align: center;
+  color: azure;
+  border-radius: 20px;
+}
+
+.fundInputs {
+  display: flex;
+}
+
+.addFundsPanel input {
+  position: absolute;
+  margin-bottom: 40px;
+  width: 60%;
+  background-color: rgba(0, 0, 0, 0);
+  height: 30px;
+  border-style: none;
+  border: none;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  color: azure;
+  font-size: 20px;
+  transform: translate(-50%, 0%);
+  left: 50%;
+  top: 20%;
+}
+
+.addFundsPanel input::placeholder {
+  color: rgb(255, 255, 255);
+}
+
+.addFundsPanel button {
+  position: absolute;
+  font-size: 20px;
+  margin-top: 50px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-radius: 20px;
+  width: 30%;
+  height: 50px;
+  cursor: pointer;
+  border: 0px;
+  transition: all ease-in-out 1s;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.addFundsPanel button:hover {
+  background-color: black;
+  color: aliceblue;
+}

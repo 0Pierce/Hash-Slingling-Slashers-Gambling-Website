@@ -8,7 +8,7 @@ import {
 
 import Home from './pages/Homepage';
 import Homepage from "./pages/Homepage";
-import Contact from './pages/Contact';
+import AddFunds from './pages/Funds';
 import Games from './pages/Games';
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -27,8 +27,8 @@ function App() {
     },
     //Route num2
     {
-      path: "/Contact",
-      element: <Contact/>
+      path: "/AddFunds",
+      element: <AddFunds/>
     },
     {
       path: "/Games",

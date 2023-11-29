@@ -2,22 +2,25 @@
 import '../styles/Header.css'
 import {React, useState, useEffect} from 'react'
 import { Link } from "react-router-dom";
+import fundLogo from "../assets/svgs/fundIcon.svg"
+
 
 
 
 const Navigation  = () => {
   const [isLogged, setIsLogged] = useState(() => localStorage.getItem('isLogged') === 'true');
+  
 
   useEffect(() => {
-    // Update state when localStorage changes in any tab of the same browser
+    // Update state
     const handleStorageChange = () => {
       setIsLogged(localStorage.getItem('isLogged') === 'true');
     };
 
-    // Subscribe to the storage event
+    
     window.addEventListener('storage', handleStorageChange);
 
-    // Clean up the subscription when the component unmounts
+    //Cleanup
     return () => {
       window.removeEventListener('storage', handleStorageChange);
     };
@@ -32,26 +35,44 @@ const Navigation  = () => {
 
   return (
   <>
+    <div className="navs">
         <ul>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/Games">Games</Link></li>
-            <li><Link to="/Contact">Contact</Link></li>
+            <li><Link to="/AddFunds">Add Funds</Link></li>
             {isLogged ? (<li><Link to="/Login" onClick={logout}>SignOut</Link></li>)  : (<li><Link to="/Login">Login</Link></li> )}
             
         </ul>
-
+      </div>
   </>
   );
 };
 
+const Balance = () => {
+  const[balance, setBalance] = useState(0);
+  const [isLogged, setIsLogged] = useState(() => localStorage.getItem('isLogged') === 'true');
 
+  return(
+    <>
+    
+    <div className="balance">
+      {isLogged ?(<ul> <li><img src={fundLogo} alt="" /></li><li> ${balance}</li></ul>) : (<ul><li></li>  <li></li></ul>)}
+
+        </div>
+    
+    </>
+  );
+};
 
 function Header() {
+  
   return (
     
     
     <div className="HeaderBody">
         <Navigation/>
+        <Balance/>
+        
        <div className="headerBackground">
 
        </div>

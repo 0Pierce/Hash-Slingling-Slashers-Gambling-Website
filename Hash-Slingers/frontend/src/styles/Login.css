@@ -4,6 +4,7 @@
   background-color: black;
   background: linear-gradient(45deg, #070070, #300045);
   position: relative;
+  overflow: hidden;
 }
 
 .LoginBody img {

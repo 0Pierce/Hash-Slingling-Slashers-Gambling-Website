@@ -34,17 +34,17 @@
   margin: 0px;
 }
 
-.HeaderBody ul {
+.navs ul {
   position: absolute;
   margin: 0px;
   display: flex;
-  right: 100px;
+  left: 10px;
   top: 30%;
   text-decoration: none;
   z-index: 5;
 }
 
-.HeaderBody li {
+.navs li {
   margin-left: 50px;
   text-decoration: none;
   list-style: none;
@@ -54,6 +54,30 @@
   color: aliceblue;
   text-decoration: none;
   font-size: 30px;
+}
+
+.balance ul {
+  position: absolute;
+  display: flex;
+  right: 50px;
+
+  top: 15%;
+}
+
+.balance li {
+  margin-left: 40px;
+  text-decoration: none;
+  list-style: none;
+  font-size: 30px;
+}
+
+.balance img {
+  z-index: 5;
+  width: 50%;
+  height: auto;
+  position: absolute;
+  top: -10px;
+  right: 50px;
 }
 
 @keyframes dotAnim {

@@ -4,7 +4,7 @@ import '../styles/Login.css'
 import Pyramid from "../assets/svgs/pyramid.svg"
 import { performLogin } from "../logic/loginAuth.js";
 import { Link } from "react-router-dom";
-
+import UpdateBalance from "../logic/UpdateBalance.js"
 
 
 
@@ -19,6 +19,7 @@ const verifyLogin = () => {
     if(performLogin(username, password)){
         console.log("Login Sucessfull")
         localStorage.setItem('isLogged', true);
+        UpdateBalance(username);
         window.location.reload();
     }else{
         alert('Invalid credentials')
@@ -37,7 +38,7 @@ useEffect(() => {
     <>
     <Header/>
     <div className="LoginBody">
-    
+    <span></span><span></span><span></span><span></span><span></span>
     <img src={Pyramid} alt=""/>
     <div className="LoginPanel">
         <h1>Login</h1>
