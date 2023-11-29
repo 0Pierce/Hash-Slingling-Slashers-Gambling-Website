@@ -21,7 +21,7 @@ const verifyLogin = () => {
         localStorage.setItem('isLogged', true);
 
         //Passes username so you can pull the balance from the DB
-        UpdateBalance(username);
+        //UpdateBalance(username);
 
         window.location.reload();
     }else{
