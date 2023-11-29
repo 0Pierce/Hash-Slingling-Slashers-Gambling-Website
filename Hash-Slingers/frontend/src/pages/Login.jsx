@@ -19,7 +19,10 @@ const verifyLogin = () => {
     if(performLogin(username, password)){
         console.log("Login Sucessfull")
         localStorage.setItem('isLogged', true);
+
+        //Passes username so you can pull the balance from the DB
         UpdateBalance(username);
+
         window.location.reload();
     }else{
         alert('Invalid credentials')
