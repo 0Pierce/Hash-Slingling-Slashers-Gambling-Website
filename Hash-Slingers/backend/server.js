@@ -8,7 +8,7 @@ const app = express();
 
 const userController = require('./controllers/userController');
 
-mongoose.connect('mongodb+srv://hashslingers:qKrqjdz1NFQkDGT2@hash-slinging.qyqsxr4.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://hashslingers:qKrqjdz1NFQkDGT2@hash-slinging.qyqsxr4.mongodb.net/gamblingWebsite', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })

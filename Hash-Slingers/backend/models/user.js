@@ -16,8 +16,20 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    fullname: {
+        type: String,
+        required: true
+    },
+    dateOfBirth: {
+        type: Date,
+        required: true
+    },
+    registrationDate: {
+        type: Date,
+        default: Date.now
+    }
 });
 
-const user = mongoose.model('user', userSchema);
+const users = mongoose.model('users', userSchema);
 
-module.exports = user;
+module.exports = users;

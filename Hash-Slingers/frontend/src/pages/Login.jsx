@@ -1,73 +1,85 @@
-import {React, useState, useEffect} from 'react'
-import Header from '../components/Header.jsx'
-import '../styles/Login.css'
-import Pyramid from "../assets/svgs/pyramid.svg"
-import { performLogin } from "../logic/loginAuth.js";
-import { Link } from "react-router-dom";
-import UpdateBalance from "../logic/UpdateBalance.js"
-
-
-
+import { React, useState, useEffect } from 'react';
+import Header from '../components/Header.jsx';
+import '../styles/Login.css';
+import Pyramid from '../assets/svgs/pyramid.svg';
+import { performLogin } from '../logic/loginAuth.js';
+import { Link } from 'react-router-dom';
+import UpdateBalance from '../logic/UpdateBalance.js';
 
 function Login() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-    const[username,setUsername]=useState('');
-    const[password,setPassword]=useState('');
-
-const verifyLogin = () => {
-    
-    if(performLogin(username, password)){
-        console.log("Login Sucessfull")
+  const verifyLogin = async () => {
+    try {
+      const response = await fetch('/auth/signin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username,
+          password,
+        }),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Login Successful', data);
+  
         localStorage.setItem('isLogged', true);
-
-        //Passes username so you can pull the balance from the DB
-        //UpdateBalance(username);
-
+        localStorage.setItem('token', data.token);
+  
+        // You may want to redirect or handle success differently here
         window.location.reload();
-    }else{
-        alert('Invalid credentials')
-        console.log("Login Failed")
+      } else {
+        console.log('Login Failed');
+        alert('Invalid credentials');
+      }
+    } catch (error) {
+      console.error('Error during login', error);
+      alert('Error during login');
     }
+  };
 
-
-};
-useEffect(() => {
+  useEffect(() => {
     // Trigger a re-render of the Navigation component when localStorage changes
     window.dispatchEvent(new Event('storage'));
   }, []);
 
-
   return (
     <>
-    <Header/>
-    <div className="LoginBody">
-    <span></span><span></span><span></span><span></span><span></span>
-    <img src={Pyramid} alt=""/>
-    <div className="LoginPanel">
-        <h1>Login</h1>
-        <div className="LoginInput">
-        <form action="">
-            <div className="lgnFields">
-             
-                
-                <input type="text" placeholder='Username' onChange={e=>setUsername(e.target.value)}/>
-                <input type="password" placeholder='Password' onChange={e=>setPassword(e.target.value)} />
-            </div>
-           
-            <div className="loginBtn"><button type="button" value="Submit" onClick={verifyLogin}>Submit</button></div>
-            <div className="lgnReg"><Link to="/Register">Dont have an account?</Link></div>
-
-        </form>
-        
+      <Header />
+      <div className="LoginBody">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <img src={Pyramid} alt="" />
+        <div className="LoginPanel">
+          <h1>Login</h1>
+          <div className="LoginInput">
+            <form action="">
+              <div className="lgnFields">
+                <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
+                <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+              </div>
+              <div className="loginBtn">
+                <button type="button" value="Submit" onClick={verifyLogin}>
+                  Submit
+                </button>
+              </div>
+              <div className="lgnReg">
+                <Link to="/Register">Don't have an account?</Link>
+              </div>
+            </form>
+          </div>
         </div>
-      
-    </div>
-
-    
-    </div>
-    <div className="LoginSand"></div>
+      </div>
+      <div className="LoginSand"></div>
     </>
-  )
+  );
 }
 
-export default Login
+export default Login;

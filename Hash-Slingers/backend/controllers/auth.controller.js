@@ -1,28 +1,27 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
+const secretKey = process.env.JWT_SECRET || 'defaultSecretKey';
 
 const generateToken = (user) => {
-    return jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-        expiresIn: '24h'
-    });
+    return jwt.sign({ id: user.id }, secretKey, { expiresIn: '24h' });
 };
 
 exports.signIn = async (req, res) => {
     try {
-        const { email, password } = req.body;
-        const user = await User.findOne({ email });
+        const { username, password } = req.body;
+        const users = await User.findOne({ username });
 
-        if (!user) {
+        if (!users) {
             return res.status(401).send({ error: 'Login failed! User not found.' });
         }
 
-        if (password !== user.password) {
+        if (password !== users.password) {
             return res.status(401).send({ error: 'Login failed! Incorrect password.' });
         }
 
-        const token = generateToken(user);
+        const token = generateToken(users);
 
-        res.status(200).send({ message: 'Login successful!', user: user, token: token });
+        res.status(200).send({ message: 'Login successful!', user: users, token: token });
     } catch (error) {
         console.error(error);
         res.status(400).send(error);

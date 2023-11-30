@@ -6,24 +6,46 @@ import { Link } from "react-router-dom";
 
 function Register() {
 
-    const[fName,setFName]=useState('');
-    const[lName,setLName]=useState('');
-    const[username,setUsername]=useState('');
-    const[password,setPassword]=useState('');
-    const[email,setEmail]=useState('');
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [fullname, setFullname] = useState('');
+    const [dateOfBirth, setDateOfBirth] = useState('');
+
   
 
-    const createAccount = () =>{
-        if(fName.length != 0 && lName.length != 0 && username.length != 0 && password.length != 0 && email.length != 0){
-            console.log('Account created')
-            //Save into DB here
+    const createAccount = async () => {
+        if (fullname.length !== 0 && username.length !== 0 && password.length !== 0 && email.length !== 0 && dateOfBirth.length !==0) {
+          try {
+            const response = await fetch('/api/user', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                username,
+                password,
+                email,
+                fullname,
+                dateOfBirth,
+              }),
+            });
+      
+            if (response.ok) {
+              console.log('Account created successfully');
+              // Optionally, redirect to login page or handle success
+            } else {
+              console.log('Account creation failed');
+              alert('Failed to create account');
+            }
+          } catch (error) {
+            console.error('Error during account creation:', error);
+          }
+        } else {
+          console.log('Account creation failed');
+          alert('Missing input');
         }
-        else{
-            console.log('Account creation failed')
-            alert('Missing input')
-            
-        }
-    }
+      };
 
   return (
     <>
@@ -37,13 +59,13 @@ function Register() {
         <form action="">
             <div className="regFields">
                 <div className="names">
-                    <input type="text" placeholder='First Name' id='fName' onChange={e=>setFName(e.target.value)}/>
-                    <input type="text" placeholder='Last Name' id='lName' onChange={e=>setLName(e.target.value)}/>
+                    <input type="text" placeholder='Full Name' id='fullname' onChange={e=>setFullname(e.target.value)}/>
                 </div>
                 
                 <input type="text" placeholder='Username' id='username' onChange={e=>setUsername(e.target.value)} />
                 <input type="email" placeholder='Email' id='email'  onChange={e=>setEmail(e.target.value)}/>
                 <input type="text" placeholder='Password' id='pass' onChange={e=>setPassword(e.target.value)}/>
+                <input type="text" placeholder='Date of Birth' id='dob' onChange={e=>setDateOfBirth(e.target.value)}/>
             </div>
            
             <div className="regBtn"><button type="button" value="Submit" onClick={createAccount}>Submit</button></div>

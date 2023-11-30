@@ -13,7 +13,7 @@ exports.createUser = async (req, res) => {
 
 exports.signIn = async (req, res) => {
     try {
-        const user = await User.findOne({ email: req.body.email });
+        const user = await User.findOne({ username: req.body.username });
         if (!user || req.body.password !== user.password) {
             return res.status(401).send({ error: 'Login failed!' });
         }
