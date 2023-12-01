@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 const authController = require('./controllers/auth.controller');
 const errorController = require('./controllers/error.controller');
+const User = require('./models/user');
 
 const app = express();
 
@@ -21,6 +22,28 @@ app.use("/api", userRoutes);
 
 app.post('/auth/signin', authController.signIn);
 app.post('/auth/signout', authController.signOut);
+
+// Endpoint to get current balance
+app.get('/api/balance', async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id);
+        res.json({ balance: user.balance });
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching balance' });
+    }
+});
+
+// Endpoint to update balance
+app.post('/api/update-balance', async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id);
+        user.balance = req.body.balance;
+        await user.save();
+        res.json({ updatedBalance: user.balance });
+    } catch (error) {
+        res.status(500).json({ message: 'Error updating balance' });
+    }
+});
 
 app.use(errorController.notFound);
 app.use(errorController.handleError);
