@@ -27,6 +27,7 @@ function Register() {
                 email,
                 fullname,
                 dateOfBirth,
+                balance: 100
               }),
             });
       
