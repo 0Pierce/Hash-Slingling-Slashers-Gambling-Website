@@ -27,6 +27,10 @@ const userSchema = new mongoose.Schema({
     registrationDate: {
         type: Date,
         default: Date.now
+    },
+    balance: {
+        type: Number,
+        default: 0
     }
 });
 
