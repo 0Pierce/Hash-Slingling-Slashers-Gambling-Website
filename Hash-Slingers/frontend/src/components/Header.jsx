@@ -38,8 +38,8 @@ const Navigation  = () => {
     <div className="navs">
         <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/Games">Games</Link></li>
-            <li><Link to="/AddFunds">Add Funds</Link></li>
+            {isLogged ? (<li><Link to="/Games">Games</Link></li>)  : (<li><Link to="/Games"></Link></li> )}
+            {isLogged ? (<li><Link to="/AddFunds">Add Funds</Link></li>)  : (<li><Link to="/AddFunds"></Link></li> )}
             {isLogged ? (<li><Link to="/Login" onClick={logout}>SignOut</Link></li>)  : (<li><Link to="/Login">Login</Link></li> )}
             
         </ul>
