@@ -3,12 +3,13 @@ import Header from '../components/Header.jsx';
 import '../styles/Login.css';
 import Pyramid from '../assets/svgs/pyramid.svg';
 import { performLogin } from '../logic/loginAuth.js';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import UpdateBalance from '../logic/UpdateBalance.js';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const verifyLogin = async () => {
     try {
@@ -29,6 +30,8 @@ function Login() {
   
         localStorage.setItem('isLogged', true);
         localStorage.setItem('token', data.token);
+
+        navigate('/');
   
         // You may want to redirect or handle success differently here
         window.location.reload();
