@@ -49,6 +49,11 @@ const Balance = () => {
   const[balance, setBalance] = useState(0);
   const [isLogged, setIsLogged] = useState(() => localStorage.getItem('isLogged') === 'true');
 
+
+
+  
+  //Gets the bal form localStorage
+  setBalance(localStorage.getItem(balance))
   return(
     <>
     

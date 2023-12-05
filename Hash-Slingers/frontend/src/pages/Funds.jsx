@@ -25,6 +25,7 @@ const handleUpdateBalance = async () => {
   try {
       const updatedBalance = await updateBalance(newBalance);
       setBalance(updatedBalance);
+      balance(localStorage.setItem(balance))
       setInputAmount('');
   } catch (error) {
       console.error('Error updating balance:', error);
