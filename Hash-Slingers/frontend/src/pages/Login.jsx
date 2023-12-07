@@ -23,16 +23,16 @@ function Login() {
           password,
         }),
       });
-  
+
       if (response.ok) {
         const data = await response.json();
         console.log('Login Successful', data);
-  
+
         localStorage.setItem('isLogged', true);
         localStorage.setItem('token', data.token);
 
         navigate('/');
-  
+
         // You may want to redirect or handle success differently here
         window.location.reload();
       } else {
@@ -81,6 +81,28 @@ function Login() {
         </div>
       </div>
       <div className="LoginSand"></div>
+
+      <div className="footer">
+        <div className="footer-content">
+          <div className="footer-section about">
+            <h2>Hash Slingers</h2>
+            <p>Discover the thrill of gaming with us. Join now and start your winning streak!</p>
+            <div className="contact">
+              <span><i className="fas fa-phone"></i>&nbsp; 123-456-7890</span>
+              <span><i className="fas fa-envelope"></i>&nbsp; info@hashslingers.com</span>
+            </div>
+            <div className="socials">
+              <a href="#"><i className="fab fa-TikTok"></i></a>
+              <a href="#"><i className="fab fa-instagram"></i></a>
+              <a href="#"><i className="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>© 2023 Hash Slingers. All rights reserved.</p>
+        </div>
+      </div>
+
     </>
   );
 }
