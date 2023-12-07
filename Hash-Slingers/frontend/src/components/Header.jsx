@@ -53,7 +53,7 @@ const Balance = () => {
 
   
   //Gets the bal form localStorage
-  setBalance(localStorage.getItem(balance))
+  
   return(
     <>
     

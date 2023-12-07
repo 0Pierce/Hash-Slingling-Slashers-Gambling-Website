@@ -128,9 +128,41 @@ function Games() {
         "balance"
       ).textContent = `Balance: $${balance.toFixed(2)}`;
     }
+    const [hBet, sethBet] = useState(0);
+    const [horse, setHorse] = useState(0);
+
+
+    function horseGame(){
+      console.log(hBet)
+      console.log(horse);
+      const goalNumber = Math.floor(Math.random() * 100) + 1;
 
   
+    let winningHorse = null;
+    let closestDistance = Infinity;
 
+    
+    for (let i = 1; i <= 4; i++) {
+       
+        const horseNumber = Math.floor(Math.random() * 100) + 1;
+        const distance = Math.abs(horseNumber - goalNumber);
+        if (distance < closestDistance) {
+            closestDistance = distance;
+            winningHorse = i;
+        }
+
+        
+        console.log(`Horse ${i} number: ${horseNumber}`);
+    }
+    console.log(`Goal number: ${goalNumber}`);
+    console.log(`Winning horse: ${winningHorse}`);
+    if (horse === winningHorse) {
+        console.log("Congratulations! You won!");
+    } else {
+        console.log("Sorry, you lost. Try again!");
+    }
+      
+    }
 
 
   return (
@@ -171,6 +203,17 @@ function Games() {
     }} />
     </div>
 
+      </div>
+      <div className="horceRacing">
+        <input type="number" placeholder='Enter Bet'  onChange={(e) => sethBet(e.target.value)} />
+        <label htmlFor="Horses">Horses</label>
+        <select name="Horses" id="Horses" onChange={(e) => setHorse(parseInt(e.target.value, 10))}>
+          <option value="1">Horse One</option>
+          <option value="2">Horse Two</option>
+          <option value="3">Horse Three</option>
+          <option value="4">Horse Four</option>
+        </select>
+        <button onClick={horseGame}>Start race</button>
       </div>
     </div>
     </div>
