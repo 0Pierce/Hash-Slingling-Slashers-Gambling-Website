@@ -3,6 +3,8 @@ import Header from '../components/Header.jsx'
 import '../styles/Register.css'
 import Pyramid from "../assets/svgs/pyramid.svg"
 import { Link, useNavigate } from "react-router-dom";
+import Footer from '../components/Footer.jsx'
+
 
 function Register() {
 
@@ -35,7 +37,6 @@ function Register() {
             console.log('Account created successfully');
             alert('Account created successfully! You will be redirected to login.');
             navigate('/Login');
-            // Optionally, redirect to login page or handle success
           } else {
             console.log('Account creation failed');
             alert('Failed to create account.');
@@ -78,6 +79,7 @@ function Register() {
             </div>
           </div>
         </div>
+        <Footer /> 
       </>
     );
     }

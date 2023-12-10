@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flip Betting Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Coin Flip Betting Game</h1>
+
+<button onclick="coinFlipGameWithBetting()">Play</button>
+
+<script>
+    function getUserChoice() {
+        var choice = prompt("Heads or Tails").toLowerCase();
+        if (choice === "heads" || choice === "tails") {
+            return choice;
+        } else {
+            alert("Invalid choice. Please enter Heads or Tails.");
+            return getUserChoice();
+        }
+    }
+
+    // Function to get user's bet amount
+    function getUserBet() {
+        var bet = parseFloat(prompt("Enter the amount you want to bet:"));
+
+        // Check if the input is a valid number
+        if (isNaN(bet) || bet <= 0) {
+            alert("Invalid bet amount. Please enter a positive number.");
+            return getUserBet();
+        }
+
+        return bet;
+    }
+
+    function flipCoin() {
+        return Math.floor(Math.random() * 2) === 0 ? "heads" : "tails";
+    }
+
+    function coinFlipGameWithBetting() {
+        var userChoice = getUserChoice();
+        var userBet = getUserBet();
+        var coinResult = flipCoin();
+
+        alert("You bet: $" + userBet + "\nYou chose: " + userChoice + "\nThe coin landed on: " + coinResult);
+
+        if (userChoice === coinResult) {
+            var winnings = userBet * 1.5;
+            alert("Congratulations! You win $" + winnings + "!");
+        } else {
+            alert("Sorry, you lose $" + userBet + ". Better luck next time!");
+        }
+    }
+</script>
+
+</body>
+</html>

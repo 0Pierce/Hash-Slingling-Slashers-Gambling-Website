@@ -1,13 +1,12 @@
 .regBody {
   height: 1000px;
   width: 100%;
-  background-color: black;
-  background: linear-gradient(45deg, #070070, #300045);
+  background: black linear-gradient(45deg, #070070, #300045);
   position: relative;
 }
 
 .regBody img {
-  position: absolute;
+  position: relative;
   top: 10%;
 }
 

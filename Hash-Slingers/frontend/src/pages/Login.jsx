@@ -5,6 +5,7 @@ import Pyramid from '../assets/svgs/pyramid.svg';
 import { performLogin } from '../logic/loginAuth.js';
 import { Link, useNavigate } from 'react-router-dom';
 import UpdateBalance from '../logic/UpdateBalance.js';
+import Footer from '../components/Footer.jsx'
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -33,7 +34,6 @@ function Login() {
 
         navigate('/');
   
-        // You may want to redirect or handle success differently here
         window.location.reload();
       } else {
         console.log('Login Failed');
@@ -46,7 +46,6 @@ function Login() {
   };
 
   useEffect(() => {
-    // Trigger a re-render of the Navigation component when localStorage changes
     window.dispatchEvent(new Event('storage'));
   }, []);
 
@@ -81,6 +80,7 @@ function Login() {
         </div>
       </div>
       <div className="LoginSand"></div>
+      <Footer /> 
     </>
   );
 }

@@ -1,5 +1,5 @@
 .LoginBody {
-  height: 1000px;
+  height: 500px;
   width: 100%;
   background-color: black;
   background: linear-gradient(45deg, #070070, #300045);
@@ -94,6 +94,6 @@
 .LoginSand {
   position: relative;
   background-color: rgb(255, 255, 255);
-  height: 500px;
+  height: 20px;
   z-index: -1;
 }
