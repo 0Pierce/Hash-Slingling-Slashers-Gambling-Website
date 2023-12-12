@@ -2,7 +2,10 @@ import {React,useState} from 'react'
 import Header from '../components/Header.jsx'
 import '../styles/Games.css'
 import wheelIcon from "../assets/images/rouletteWhl.png"
-
+import h1 from "../assets/images/horse0.png"
+import h2 from "../assets/images/horse1.png"
+import h3 from "../assets/images/horse2.png"
+import h4 from "../assets/images/horse3.png"
 function Games() {
   const [coinResult, setCoinResult] = useState(0);
 
@@ -136,6 +139,17 @@ function Games() {
     const [horse, setHorse] = useState(0);
 
 
+
+
+
+
+
+
+
+
+    const [translations, setTranslations] = useState([0, 0, 0, 0]);
+    //const [places, setPlaces] = useState([3,2,1,0]);
+
     function horseGame(){
       console.log(hBet)
       console.log(horse);
@@ -145,7 +159,7 @@ function Games() {
     let winningHorse = null;
     let closestDistance = Infinity;
 
-    
+    //sets the winning horse
     for (let i = 1; i <= 4; i++) {
        
         const horseNumber = Math.floor(Math.random() * 100) + 1;
@@ -157,14 +171,39 @@ function Games() {
 
         
         console.log(`Horse ${i} number: ${horseNumber}`);
+       
+        
+    }
+    if(winningHorse == 1){
+      console.log("Set first horse first")
+      setTranslations([225, 75, 150,0])
+    }else if(winningHorse == 2){
+      console.log("Set second horse first")
+      setTranslations([75, 225, 150,0])
+    }else if(winningHorse == 3){
+      console.log("Set third horse first")
+      setTranslations([75, 150, 225,0])
+    }else{
+      console.log("Set fourth horse first")
+      setTranslations([75, 150, 0,225])
     }
     console.log(`Goal number: ${goalNumber}`);
     console.log(`Winning horse: ${winningHorse}`);
     if (horse === winningHorse) {
         console.log("Congratulations! You won!");
+        
     } else {
         console.log("Sorry, you lost. Try again!");
     }
+
+
+  
+
+
+  
+    setTimeout(() => {
+      setTranslations([0, 0, 0, 0]);
+    }, 3000);
   }
   
   
@@ -193,6 +232,7 @@ function Games() {
       alert("Sorry, you lose $" + fBet + ". Better luck next time!");
     }
   }
+  
 
   return (
     <>
@@ -234,7 +274,8 @@ function Games() {
 
       </div>
       <div className="horceRacing">
-        <input type="number" placeholder='Enter Bet'  onChange={(e) => sethBet(e.target.value)} />
+        <form onSubmit={(e) => {e.preventDefault();horseGame();}}>
+        <input type="number" placeholder='Enter Bet' onChange={(e) => sethBet(e.target.value)} required/>
         <label htmlFor="Horses">Horses</label>
         <select name="Horses" id="Horses" onChange={(e) => setHorse(parseInt(e.target.value, 10))}>
           <option value="1">Horse One</option>
@@ -242,7 +283,24 @@ function Games() {
           <option value="3">Horse Three</option>
           <option value="4">Horse Four</option>
         </select>
-        <button onClick={horseGame}>Start race</button>
+        
+        <button type="submit">Start Race</button>
+        </form>
+    <div className="horseTrack">
+        <div className="h1" style={{ transform: `translateX(${translations[0]}px)`, transition: 'transform 1s ease-in-out' }}>
+        <img src={h1} alt="" />
+      </div>
+      <div className="h2" style={{ transform: `translateX(${translations[1]}px)`, transition: 'transform 1s ease-in-out' }}>
+        <img src={h2} alt="" />
+      </div>
+      <div className="h3" style={{ transform: `translateX(${translations[2]}px)`, transition: 'transform 1s ease-in-out' }}>
+        <img src={h3} alt="" />
+      </div>
+      <div className="h4" style={{ transform: `translateX(${translations[3]}px)`, transition: 'transform 1s ease-in-out' }}>
+        <img src={h4} alt="" />
+      </div>
+      </div>
+
       </div>
 
       <div className="coinFlipGame">

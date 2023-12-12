@@ -1,6 +1,6 @@
 .gamesBody {
   text-align: center;
-  height: 1000px;
+  height: 2000px;
   width: 100%;
   background-color: black;
   background: linear-gradient(45deg, #070070, #300045);
@@ -14,7 +14,6 @@
 .rouletteGame {
   width: 100%;
   height: 800px;
-  background-color: #300045;
 
   position: relative;
   color: azure;
@@ -48,5 +47,17 @@
   position: relative;
   width: 100%;
   height: 600px;
-  background-color: aqua;
+  color: azure;
+}
+
+.horseTrack {
+  position: relative;
+  text-align: left;
+  width: 100%;
+  height: 800px;
+}
+
+.horseTrack img {
+  position: relative;
+  width: 200px;
 }
