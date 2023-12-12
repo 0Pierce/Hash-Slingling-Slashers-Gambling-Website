@@ -196,7 +196,6 @@ function Games() {
         console.log("Sorry, you lost. Try again!");
     }
 
-<<<<<<< Updated upstream
 
   
 
@@ -219,10 +218,6 @@ function Games() {
     if (fBet < 1) {
       alert("Please enter a bet amount more than $1.")
       return;
-=======
-    
-      
->>>>>>> Stashed changes
     }
 
     const userChoice = fBet > 0.5 ? 'heads' : 'tails';
