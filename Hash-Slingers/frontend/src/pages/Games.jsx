@@ -4,6 +4,10 @@ import '../styles/Games.css'
 import wheelIcon from "../assets/images/rouletteWhl.png"
 
 function Games() {
+  const [coinResult, setCoinResult] = useState(0);
+
+  const headsImage = require("../assets/images/heads.png")
+  const tailsImage = require("../assets/images/tails.png")
 
 
  
@@ -161,9 +165,34 @@ function Games() {
     } else {
         console.log("Sorry, you lost. Try again!");
     }
-      
+  }
+  
+  
+
+  function flipCoin() {
+    return Math.random() < 0.5 ? 'heads' : 'tails';
+  }
+
+  const [fBet, setfBet] = useState(0);
+
+  function coinFlip() {
+    if (fBet < 1) {
+      alert("Please enter a bet amount more than $1.")
+      return;
     }
 
+    const userChoice = fBet > 0.5 ? 'heads' : 'tails';
+  
+    const coinResult = flipCoin();
+    setCoinResult(coinResult);
+  
+    if (userChoice.toLowerCase() === coinResult) {
+      const winnings = fBet * 1.5;
+      alert("Congratulations! You win $" + winnings + "!");
+    } else {
+      alert("Sorry, you lose $" + fBet + ". Better luck next time!");
+    }
+  }
 
   return (
     <>
@@ -215,8 +244,41 @@ function Games() {
         </select>
         <button onClick={horseGame}>Start race</button>
       </div>
+
+      <div className="coinFlipGame">
+            <h1>Coin Flip</h1>
+            <form id="coinBetForm">
+              <label htmlFor="coinBetInput">Enter your bet amount:</label>
+              <input
+                type="number"
+                id="coinBetInput"
+                placeholder="Enter bet amount"
+                value={fBet}
+                onChange={(e) => setfBet(e.target.value)}
+                required
+              />
+
+              <label htmlFor="coinChoice">Choose Heads or Tails:</label>
+              <select id="coinChoice" name="coinChoice">
+                <option value="heads">Heads</option>
+                <option value="tails">Tails</option>
+              </select>
+            </form>
+
+            <button onClick={coinFlip}>Flip Coin</button>
+            {coinResult !== null && (
+              <><p>
+                The coin landed on: {coinResult === 'heads' ? 'Heads' : 'Tails'}
+              </p>
+              <img
+              src={coinResult === 'heads' ? headsImage : tailsImage}
+              alt={coinResult === 'heads' ? 'Heads' : 'Tails'}
+              />
+            </>
+          )}
     </div>
-    </div>
+  </div>
+  </div>
     
     </>
   )
