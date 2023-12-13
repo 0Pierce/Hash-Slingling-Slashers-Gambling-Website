@@ -22,6 +22,13 @@ function Funds() {
     }
   };
 
+  const resetBalance = () => {
+    if (window.confirm("Are you sure you want to reset the balance?")) {
+      updateBalance(0);
+      alert("Balance has been reset to $0");
+    }
+  };
+
   return (
     <>
       <Header />
@@ -37,6 +44,12 @@ function Funds() {
               onChange={e => setInputAmount(e.target.value)}
             />
             <button onClick={handleUpdateBalance}>Submit</button>
+          </div>
+          {/* Positioned Reset Balance link below the Submit button */}
+          <div className="reset-wrapper">
+            <div className="reset-link" onClick={resetBalance}>
+              <small>Reset Balance</small>
+            </div>
           </div>
         </div>
       </div>
