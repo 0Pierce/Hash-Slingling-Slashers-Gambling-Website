@@ -24,7 +24,7 @@ function Homepage() {
                 <div className="gameBack"></div>
                 <h1>Coin Toss</h1>
                 <img src={coinTossImg} alt="Image" />
-                <p>Experience the thrill of the Coin Toss! A simple yet exciting game where your luck is tested with a flip of a coin.</p>
+                <p>Expe1rience the thrill of the Coin Toss! A simple yet exciting game where your luck is tested with a flip of a coin.</p>
               </div>
               <div className="game">
                 <div className="gameBack"></div>

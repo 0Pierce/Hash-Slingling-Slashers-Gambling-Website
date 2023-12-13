@@ -253,8 +253,8 @@ function Games() {
       <div className="coinTossGame"></div>
       <div className="rouletteGame">
       <h1>Roulette: </h1>
-    //needs to be deleted
-    <p id="balance">Needs to be deleted:Balance: $100</p>
+   
+   
 
     <form id="betForm">
       <label for="betInput">Enter your bet amount:</label>
@@ -310,6 +310,7 @@ function Games() {
       </div>
 
       <div className="horseInput">
+        <div className="hordeIContent">
       <form onSubmit={(e) => {e.preventDefault();horseGame();}}>
         <input type="number" placeholder='Enter Bet' onChange={(e) => sethBet(e.target.value)} required/>
         <label htmlFor="Horses">Horses</label>
@@ -323,12 +324,15 @@ function Games() {
         <button type="submit">Start Race</button>
         </form>
         <div className="Winner">
-        <h3>Winner is: </h3>
-        <h2>{winner}</h2>
-        <h1>{won}</h1>
+         <div className="WinnerContent">
+           <h3>Winner is: </h3>
+           <h2>{winner}</h2>
+           <h1>{won}</h1>
+         </div>
+        
         </div>
        
-
+        </div>
       </div>
     
       </div>
