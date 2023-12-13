@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from '../components/Header.jsx';
+import Footer from '../components/Footer.jsx';
 import '../styles/Funds.css';
 import moneyTruck from "../assets/svgs/mnyTruck.svg";
 import { getCurrentBalance, updateBalance } from "../logic/UpdateBalance.js";
@@ -51,6 +52,7 @@ return (
               </div>
           </div>
       </div>
+      <Footer />
   </>
 );
 }

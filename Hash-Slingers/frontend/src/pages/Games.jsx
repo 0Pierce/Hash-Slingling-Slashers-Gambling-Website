@@ -6,6 +6,7 @@ import h1 from "../assets/images/horse0.png"
 import h2 from "../assets/images/horse1.png"
 import h3 from "../assets/images/horse2.png"
 import h4 from "../assets/images/horse3.png"
+import Footer from '../components/Footer.jsx'
 function Games() {
   const [coinResult, setCoinResult] = useState(0);
 
@@ -371,8 +372,10 @@ function Games() {
     </div>
   </div>
   </div>
+  <Footer />
     
     </>
+    
   )
 }
 

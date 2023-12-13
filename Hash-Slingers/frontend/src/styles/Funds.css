@@ -78,3 +78,12 @@
   background-color: black;
   color: aliceblue;
 }
+
+.Footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #4d1864; 
+  color: white; 
+  position: relative; 
+  width: 100%;
+}
