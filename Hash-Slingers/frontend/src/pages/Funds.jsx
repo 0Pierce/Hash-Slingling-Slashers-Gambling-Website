@@ -1,60 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header.jsx';
 import Footer from '../components/Footer.jsx';
 import '../styles/Funds.css';
 import moneyTruck from "../assets/svgs/mnyTruck.svg";
-import { getCurrentBalance, updateBalance } from "../logic/UpdateBalance.js";
+import { useBalance } from "../BalanceContext"; 
 
 function Funds() {
   const [inputAmount, setInputAmount] = useState('');
-  const [balance, setBalance]=useState(0);
-  
-  useEffect(() => {
-    const fetchAndSetBalance = async () => {
-      try {
-          const initialBalance = await getCurrentBalance();
-          setBalance(initialBalance); 
-      } catch (error) {
-          console.error('Error fetching balance:', error);
-      }
-    };
-    fetchAndSetBalance();
-  }, []);
+  const { balance, updateBalance } = useBalance(); 
 
-const handleUpdateBalance = async () => {
-  const newBalance = balance + parseFloat(inputAmount);
-  try {
-      const updatedBalance = await updateBalance(newBalance);
-      setBalance(updatedBalance);
-      localStorage.setItem('balance', updatedBalance);
-      window.dispatchEvent(new Event('balanceUpdated'));
-      setInputAmount('');
-  } catch (error) {
-      console.error('Error updating balance:', error);
-  }
-};
+  const handleUpdateBalance = () => {
+    const inputNumber = parseFloat(inputAmount);
+    if (!isNaN(inputNumber) && inputNumber > 0) {
+      const newBalance = balance + inputNumber;
+      updateBalance(newBalance); 
+      setInputAmount(''); 
+      window.alert("Funds added!");
+    } else {
+      console.error('Invalid input amount');
+      window.alert("Invalid amount entered. Please enter a positive number.");
+    }
+  };
 
-return (
-  <>
+  return (
+    <>
       <Header />
       <div className="fundsBody">
-          <img src={moneyTruck} alt="Money Truck" />
-          <div className="addFundsPanel">
-              <h1>Add funds</h1>
-              <div className="fundInputs">
-                  <input
-                      type="number"
-                      placeholder="$ amount"
-                      value={inputAmount}
-                      onChange={e => setInputAmount(e.target.value)}
-                  />
-                  <button onClick={handleUpdateBalance}>Submit</button>
-              </div>
+        <img src={moneyTruck} alt="Money Truck" />
+        <div className="addFundsPanel">
+          <h1>Add funds</h1>
+          <div className="fundInputs">
+            <input
+              type="number"
+              placeholder="$ amount"
+              value={inputAmount}
+              onChange={e => setInputAmount(e.target.value)}
+            />
+            <button onClick={handleUpdateBalance}>Submit</button>
           </div>
+        </div>
       </div>
       <Footer />
-  </>
-);
+    </>
+  );
 }
 
 export default Funds;
