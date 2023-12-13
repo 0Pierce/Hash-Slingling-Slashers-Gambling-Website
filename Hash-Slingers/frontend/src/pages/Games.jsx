@@ -254,8 +254,9 @@ function Games() {
       <div className="coinTossGame"></div>
       <div className="rouletteGame">
       <h1>Roulette: </h1>
-   
-   
+      
+    <p id="balance">Balance: $100</p>
+    
 
     <form id="betForm">
       <label for="betInput">Enter your bet amount:</label>
@@ -311,7 +312,7 @@ function Games() {
       </div>
 
       <div className="horseInput">
-        <div className="hordeIContent">
+        <div className="horseIContent">
       <form onSubmit={(e) => {e.preventDefault();horseGame();}}>
         <input type="number" placeholder='Enter Bet' onChange={(e) => sethBet(e.target.value)} required/>
         <label htmlFor="Horses">Horses</label>
