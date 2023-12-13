@@ -5,8 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import fundLogo from "../assets/svgs/fundIcon.svg"
 
 
-
-
 const Navigation  = () => {
   const [isLogged, setIsLogged] = useState(() => localStorage.getItem('isLogged') === 'true');
   const navigate = useNavigate();
@@ -46,48 +44,48 @@ const Navigation  = () => {
 };
 
 const Balance = () => {
-  const[balance, setBalance] = useState(0);
+  const [balance, setBalance] = useState(() => parseFloat(localStorage.getItem('balance')) || 0);
   const [isLogged, setIsLogged] = useState(() => localStorage.getItem('isLogged') === 'true');
 
+  useEffect(() => {
+    const updateBalanceFromStorage = (event) => {
+      const newBalance = event ? event.detail : parseFloat(localStorage.getItem('balance')) || 0;
+      setBalance(newBalance);
+    };
 
+    window.addEventListener('balanceUpdated', updateBalanceFromStorage);
 
-  
-  //Gets the bal form localStorage
-  
-  return(
-    <>
-    
+    updateBalanceFromStorage();
+
+    return () => {
+      window.removeEventListener('balanceUpdated', updateBalanceFromStorage);
+    };
+  }, []);
+
+  return (
     <div className="balance">
-      {isLogged ?(<ul> <li><img src={fundLogo} alt="" /></li><li> ${balance}</li></ul>) : (<ul><li></li>  <li></li></ul>)}
-
-        </div>
-    
-    </>
+      {isLogged ? (
+        <>
+          <ul>
+            <li><img src={fundLogo} alt="Fund Icon" /></li>
+            <li>${balance.toFixed(0)}</li>
+          </ul>
+        </>
+      ) : (
+        <ul><li></li><li></li></ul>
+      )}
+    </div>
   );
 };
 
 function Header() {
-  
   return (
-    
-    
     <div className="HeaderBody">
-        <Navigation/>
-        <Balance/>
-        
-       <div className="headerBackground">
-
-       </div>
-        
-        
-      
-    
+      <Navigation />
+      <Balance />
+      <div className="headerBackground"></div>
     </div>
-    
-
-    
-    
-  )
+  );
 }
 
-export default Header
+export default Header;

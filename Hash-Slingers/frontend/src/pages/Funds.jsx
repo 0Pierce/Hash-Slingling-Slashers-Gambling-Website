@@ -9,23 +9,24 @@ function Funds() {
   const [balance, setBalance]=useState(0);
   
   useEffect(() => {
-    const fetchBalance = async () => {
+    const fetchAndSetBalance = async () => {
       try {
           const initialBalance = await getCurrentBalance();
-          setBalance(initialBalance);
+          setBalance(initialBalance); 
       } catch (error) {
           console.error('Error fetching balance:', error);
       }
-  };
-  fetchBalance();
-}, []);
+    };
+    fetchAndSetBalance();
+  }, []);
 
 const handleUpdateBalance = async () => {
   const newBalance = balance + parseFloat(inputAmount);
   try {
       const updatedBalance = await updateBalance(newBalance);
       setBalance(updatedBalance);
-      balance(localStorage.setItem(balance))
+      localStorage.setItem('balance', updatedBalance);
+      window.dispatchEvent(new Event('balanceUpdated'));
       setInputAmount('');
   } catch (error) {
       console.error('Error updating balance:', error);
