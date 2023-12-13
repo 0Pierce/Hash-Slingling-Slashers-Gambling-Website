@@ -1,5 +1,5 @@
 .HomepageBody {
-  height: 800px;
+  height: 1200px;
   position: relative;
   overflow: hidden;
   background: linear-gradient(215deg, rgba(0, 21, 98, 1) 0%, #6b006e 100%);
@@ -135,6 +135,14 @@
   transition: 1s;
   top: 0px;
   opacity: 1;
+}
+
+.homeInfo {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 200px;
+  background-color: burlywood;
 }
 
 @keyframes blobAnim {

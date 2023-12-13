@@ -5,6 +5,8 @@ import '../styles/HomePage.css'
 import blob1 from "../assets/svgs/blob1.svg"
 import blob2 from "../assets/svgs/blob2.svg"
 import rouletteImg from "../assets/images/roulette.jpg"
+import horseImg from "../assets/images/horseRace.jpg"
+import coinTossImg from "../assets/images/coinToss.png"
 import Footer from '../components/Footer.jsx'
 
 function Homepage() {
@@ -21,7 +23,7 @@ function Homepage() {
               <div className="game">
                 <div className="gameBack"></div>
                 <h1>Coin Toss</h1>
-                <img src={rouletteImg} alt="Image" />
+                <img src={coinTossImg} alt="Image" />
                 <p>Experience the thrill of the Coin Toss! A simple yet exciting game where your luck is tested with a flip of a coin.</p>
               </div>
               <div className="game">
@@ -33,10 +35,14 @@ function Homepage() {
               <div className="game">
                 <div className="gameBack"></div>
                 <h1>Horse Race</h1>
-                <img src={rouletteImg} alt="Image" />
+                <img src={horseImg} alt="Image" />
                 <p>Get in on the action with our Horse Race game. Bet on your favorite and watch as they gallop towards victory.</p>
               </div>
             </div>
+          </div>
+          <div className="homeInfo">
+          <h3>Hash-Slinging Casino offers many of the most popular casino games you will find in some of the most famous casinos around the world. Enjoy the safe and secure online casino experience, where you can play online slots, Poker, Baccarat, Roulette, Blackjack, and many more online casino games!</h3>
+
           </div>
         </div>
         <img src={blob2} alt="" className='blob2' />

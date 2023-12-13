@@ -18,6 +18,8 @@
   background-color: black;
   background: linear-gradient(45deg, #070070, #300045);
   overflow: hidden;
+  position: relative;
+  z-index: 2;
 }
 
 .HPWelcomeBody h1 {
@@ -48,22 +50,19 @@
   animation: dotZoomOut 120s linear infinite;
 }
 
-.HPWelcomeBody img {
-  position: relative;
-  z-index: 2;
-}
-
 .landPyramid {
   position: absolute;
   width: 100%;
   height: auto;
   bottom: -120px;
-  z-index: 0;
+  z-index: 10;
 }
 
 .landPyramid img {
   overflow: hidden;
   height: auto;
+  z-index: 100;
+  position: relative;
 }
 
 .landPyramid h1 {
@@ -76,8 +75,9 @@
   height: 100%;
   background-image: url("../assets/svgs/circles.svg");
   filter: blur(50px) drop-shadow(16px 16px 20px red) invert(75%);
-
+  position: relative;
   overflow: hidden;
+  z-index: 0;
   animation: cloudMove 20s linear infinite;
 }
 
@@ -106,6 +106,7 @@ span {
   box-shadow: 0 0 0 4px rgba(255, 0, 0, 0.103),
     0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgb(255, 0, 0);
   animation: stars 5s linear infinite;
+  z-index: 1;
 }
 
 span::before {
@@ -116,6 +117,7 @@ span::before {
   width: 300px;
   height: 1px;
   background: linear-gradient(90deg, #fff, transparent);
+  z-index: 1;
 }
 
 span:nth-child(1) {
