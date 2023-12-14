@@ -224,7 +224,7 @@ function Games() {
   }
 
   const [fBet, setfBet] = useState(0);
-
+  const [isButtonClicked, setButtonClicked] = useState(false);
   function coinFlip() {
     if (fBet < 1) {
       alert("Please enter a bet amount more than $1.")
@@ -235,6 +235,7 @@ function Games() {
   
     const coinResult = flipCoin();
     setCoinResult(coinResult);
+    setButtonClicked(!isButtonClicked);
   
     if (userChoice.toLowerCase() === coinResult) {
       const winnings = fBet * 1.5;
@@ -367,6 +368,10 @@ function Games() {
               <img
               src={coinResult === 'heads' ? headsImage : tailsImage}
               alt={coinResult === 'heads' ? 'Heads' : 'Tails'}
+              style={{
+                transform: isButtonClicked ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                transition: 'transform 0.5s ease-in-out',
+              }}
               />
             </>
           )}
