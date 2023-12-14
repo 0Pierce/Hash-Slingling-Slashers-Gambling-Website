@@ -16,7 +16,8 @@ app.use(
   })
 );
 
-app.use(express.static(path.join(CURRENT_WORKING_DIR, "build/app")));
+//app.use(express.static(path.join(CURRENT_WORKING_DIR, "build/app")));
+app.use(express.static(path.join(__dirname, "./build")));
 
 mongoose
   .connect(
