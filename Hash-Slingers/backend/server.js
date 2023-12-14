@@ -18,9 +18,19 @@ app.use(
 );
 
 //app.use(express.static(path.join(CURRENT_WORKING_DIR, "build/app")));
+app.use((req, res, next) => {
+  console.log("Request method:", req.method);
+  console.log("Request path:", req.path);
+  console.log("Request query parameters:", req.query);
+  console.log("Request headers:", req.headers);
+  next();
+});
+
+// Serve static files from the React build directory
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
-app.get("/", function (req, res) {
+// Route to serve the React app for all paths
+app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
 });
 
