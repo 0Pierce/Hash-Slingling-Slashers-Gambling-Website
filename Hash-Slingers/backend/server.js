@@ -49,7 +49,7 @@ app.use(express.json());
 
 // This will log the request body for debugging
 app.use((req, res, next) => {
-  console.log("Request body:", req.body);
+  console.log("OLA Request body:", req.body);
   next();
 });
 
