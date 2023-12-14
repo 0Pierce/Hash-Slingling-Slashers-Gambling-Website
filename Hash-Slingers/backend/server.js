@@ -6,6 +6,7 @@ const authController = require("./controllers/auth.controller");
 const errorController = require("./controllers/error.controller");
 const userController = require("./controllers/userController");
 const User = require("./models/user");
+const path = require("path"); // Import the 'path' module
 
 const app = express();
 
@@ -17,7 +18,7 @@ app.use(
 );
 
 //app.use(express.static(path.join(CURRENT_WORKING_DIR, "build/app")));
-app.use(express.static(path.join(__dirname, "./build")));
+app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 mongoose
   .connect(
