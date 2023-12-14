@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bb1c0b13.css",
+    "main.js": "/static/js/main.33d89724.js",
+    "static/js/787.9e9f4ffd.chunk.js": "/static/js/787.9e9f4ffd.chunk.js",
+    "static/media/pyramid.svg": "/static/media/pyramid.1d28662475e809e16e0ef06b748e8c2f.svg",
+    "static/media/coinToss.png": "/static/media/coinToss.7b4784b9db42ad5d75a5.png",
+    "static/media/roulette.jpg": "/static/media/roulette.bf527afd73fc99e00c92.jpg",
+    "static/media/rouletteWhl.png": "/static/media/rouletteWhl.70caf483dde9588c0dee.png",
+    "static/media/horse0.png": "/static/media/horse0.74081eb22c0997327e9d.png",
+    "static/media/horse3.png": "/static/media/horse3.f56a3397727a7740a331.png",
+    "static/media/horse1.png": "/static/media/horse1.e84791d1ae53d4ce3d7a.png",
+    "static/media/horse2.png": "/static/media/horse2.e24f937f8f06608ed077.png",
+    "static/media/horseRace.jpg": "/static/media/horseRace.382c3af9cb3d73a94373.jpg",
+    "static/media/circles.svg": "/static/media/circles.c050db542aedcd680157.svg",
+    "static/media/mnyTruck.svg": "/static/media/mnyTruck.4c4fbc513d800f405caba2242024e6a9.svg",
+    "static/media/fundIcon.svg": "/static/media/fundIcon.a84de177d5522c55329ce37828f2c7d2.svg",
+    "index.html": "/index.html",
+    "static/media/blob2.svg": "/static/media/blob2.1c1499a71bc59ad6809e24ed50484565.svg",
+    "static/media/blob1.svg": "/static/media/blob1.2e066037c994b3293047260f648628c9.svg",
+    "main.bb1c0b13.css.map": "/static/css/main.bb1c0b13.css.map",
+    "main.33d89724.js.map": "/static/js/main.33d89724.js.map",
+    "787.9e9f4ffd.chunk.js.map": "/static/js/787.9e9f4ffd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bb1c0b13.css",
+    "static/js/main.33d89724.js"
+  ]
+}
