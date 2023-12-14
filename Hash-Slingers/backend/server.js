@@ -20,6 +20,10 @@ app.use(
 //app.use(express.static(path.join(CURRENT_WORKING_DIR, "build/app")));
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
+});
+
 mongoose
   .connect(
     "mongodb+srv://hashslingers:qKrqjdz1NFQkDGT2@hash-slinging.qyqsxr4.mongodb.net/gamblingWebsite",
