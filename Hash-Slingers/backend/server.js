@@ -29,6 +29,7 @@ app.use((req, res, next) => {
 // Serve static files from the React build directory
 app.use(express.static(path.join(__dirname, "./frontend/build")));
 console.log(__dirname);
+console.log("TESTTTTTTT1111111111");
 // Route to serve the React app for all paths
 //app.get("/", function (req, res) {
 //  res.sendFile(path.join(__dirname, "./frontend/build", "index.html"));
@@ -91,6 +92,7 @@ const port = process.env.PORT || 5000;
 app
   .listen(port, () => {
     console.log(`Server running on port ${port}`);
+    console.log("TESTTTTTTT222222222222");
     console.log(__dirname);
   })
   .on("error", (err) => {
