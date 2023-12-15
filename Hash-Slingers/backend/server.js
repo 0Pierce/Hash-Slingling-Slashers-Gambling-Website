@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 });
 
 // Serve static files from the React build directory
-app.use(express.static(path.join(__dirname, "./frontend/build")));
+app.use(express.static(path.join(__dirname, "../frontend/build")));
 console.log(__dirname);
 console.log("TESTTTTTTT1111111111");
 // Route to serve the React app for all paths
